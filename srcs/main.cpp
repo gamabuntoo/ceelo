@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ceelo.cpp                                          :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gule-bat <gule-bat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 12:46:42 by gule-bat          #+#    #+#             */
-/*   Updated: 2026/06/18 19:28:22 by gule-bat         ###   ########.fr       */
+/*   Updated: 2026/06/18 19:28:20 by gule-bat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ceelo.hpp"
 
-
-ceelo::ceelo(int pl_nb)
+int main(int argc, char **argv)
 {
-    player_nb = pl_nb;
-    game_status = 0; 
+    if (argc != 2)
+        return 1;
+    std::string str = argv[1];
+    int i = atoi(str.c_str());
+    try
+    {
+        ceelo(i);
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    return (0);
 }
-
-ceelo::ceelo()
-{
-    player_nb = 0;
-}    
